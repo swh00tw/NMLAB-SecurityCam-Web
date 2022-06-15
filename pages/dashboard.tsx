@@ -2,34 +2,20 @@ import { useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import {
   Flex,
-  Divider,
   Text,
   Heading,
   Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  Input,
-  useDisclosure,
-  useToast,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
   IconButton,
-  MenuDivider,
   Image,
 } from "@chakra-ui/react";
 import { ChevronDownIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import useSWR from "swr";
 
 interface Image {
@@ -163,11 +149,9 @@ interface DashboardProps {
 
 function DashboardPage(props: DashboardProps) {
   const router = useRouter();
-  const { id: LineID } = router.query;
   const { api_url } = props;
-  const { user, error, isLoading } = useUser();
+  const { user, error } = useUser();
   const userDataFetcher = async (api_url: string) => {
-    console.log("api_url: ", api_url);
     return await axios.post(api_url, {
       user: user?.sub,
     });
@@ -194,14 +178,10 @@ function DashboardPage(props: DashboardProps) {
     return [];
   }, [data, album]);
 
-  console.log(data);
-
-  console.log(images);
-
   return (
     <Flex minH="100vh" flexDirection={"column"}>
       <HeaderBar setAlbum={setAlbum} />
-      {SWRError ? (
+      {SWRError || error ? (
         <Flex
           minH="90vh"
           justifyContent={"center"}

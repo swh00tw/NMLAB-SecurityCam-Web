@@ -134,7 +134,6 @@ function Home(props: HomePageProps): JSX.Element {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    console.log("data: ", data?.data.user);
     if (data && data.data.user === null) {
       setShowModal(true);
     }
@@ -295,7 +294,7 @@ function Home(props: HomePageProps): JSX.Element {
               >
                 {user.name} {data?.data.user ? "✅" : "⚠️"}
               </Text>
-              <Link href={`/dashboard?id=${data?.data.user._id}`}>
+              <Link href={`/dashboard`}>
                 <Button
                   mt={6}
                   colorScheme="whatsapp"
