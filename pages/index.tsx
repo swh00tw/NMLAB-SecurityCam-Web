@@ -45,8 +45,14 @@ function FirstTimeModal(props: ModalProps) {
         <ModalHeader>Hi there!</ModalHeader>
         <ModalBody>
           <Flex py={2} flexDirection="column" mb={2}>
-            <Text>Welcome to join us!</Text>
-            <Text>To enable our service, please input your LineID below.</Text>
+            <Text fontFamily={"Roboto Mono"}>Welcome to join us!</Text>
+            <Text fontFamily={"Roboto Mono"}>
+              To enable our service, please input your LineID below.
+            </Text>
+            <Text
+              fontFamily={"Roboto Mono"}
+              color="green.500"
+            >{`Then follow guide in "Setup Tutorial" to go through basic setup steps and learn how to use our service.`}</Text>
           </Flex>
           <Input
             placeholder="Insert your LineID here!"
@@ -226,7 +232,7 @@ function Home(props: HomePageProps): JSX.Element {
             </Flex>
           </Flex>
           <Flex w="100%" justifyContent={"center"} mb={10}>
-            <Link href="https://swh00tw.me">
+            <Link href="https://github.com/swh00tw/NMLAB-SecurityCam-Web">
               <Button mx={1} colorScheme="green" leftIcon={<FaBook />}>
                 Setup Tutorial
               </Button>
@@ -236,7 +242,7 @@ function Home(props: HomePageProps): JSX.Element {
                 Github
               </Button>
             </Link>
-            <Link href="/api/auth/logout">
+            <Link href="mailto:b07502089@ntu.edu.tw">
               <Button
                 mx={1}
                 rightIcon={<MdCall />}
