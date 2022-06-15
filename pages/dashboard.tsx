@@ -182,7 +182,16 @@ function DashboardPage(props: DashboardProps) {
   return (
     <Flex minH="100vh" flexDirection={"column"}>
       <HeaderBar setAlbum={setAlbum} />
-      {SWRError || error ? (
+      {!user ? (
+        <Flex
+          minH="90vh"
+          justifyContent={"center"}
+          alignItems="center"
+          flexDirection={"column"}
+        >
+          <Text>{`Navigate back to home page to login first!`}</Text>
+        </Flex>
+      ) : SWRError || error ? (
         <Flex
           minH="90vh"
           justifyContent={"center"}
@@ -216,6 +225,16 @@ function DashboardPage(props: DashboardProps) {
             </Flex>
           ) : (
             <Flex w="50%" flexWrap={"wrap"} justify="space-between">
+              <Flex w="100%" justify={"center"} mb={2}>
+                <Flex w="40%" justifyContent={"space-between"}>
+                  <Text color="gray.500" fontFamily={"Roboto Mono"}>
+                    Current album:{" "}
+                  </Text>
+                  <Text color="green.500" fontFamily={"Roboto Mono"}>
+                    {album}
+                  </Text>
+                </Flex>
+              </Flex>
               {images.map((image, index) => (
                 <ImageCard key={index} image={image} />
               ))}
