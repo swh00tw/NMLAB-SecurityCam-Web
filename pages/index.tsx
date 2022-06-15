@@ -35,6 +35,8 @@ function FirstTimeModal(props: ModalProps) {
   const toast = useToast();
   const { isOpen, onClose, onSubmit, auth0Id } = props;
   const [lineID, setLineID] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   // useEffect(() => {
   //   console.log(lineID);
   // }, [lineID]);
@@ -42,17 +44,39 @@ function FirstTimeModal(props: ModalProps) {
     <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Hi there!</ModalHeader>
+        <ModalHeader>Hi there! My friend.</ModalHeader>
         <ModalBody>
           <Flex py={2} flexDirection="column" mb={2}>
-            <Text fontFamily={"Roboto Mono"}>Welcome to join us!</Text>
-            <Text fontFamily={"Roboto Mono"}>
+            <Text fontFamily={"Roboto Mono"} mb={2}>
+              Welcome to join us!
+            </Text>
+            <Text fontFamily={"Roboto Mono"} mb={2}>
               To enable our service, please input your LineID below.
             </Text>
             <Text
               fontFamily={"Roboto Mono"}
               color="green.500"
-            >{`Then follow guide in "Setup Tutorial" to go through basic setup steps and learn how to use our service.`}</Text>
+              mb={2}
+            >{`Then follow guide in "Setup Tutorial" to go through basic setup steps and learn how to use our service.\n`}</Text>
+            <Flex w="100%" justify={"end"} alignItems="center">
+              <Text
+                fontFamily={"Roboto Mono"}
+                color="green.500"
+                mb={2}
+              >{`You could also finish this part first!`}</Text>
+              <Button
+                mx={2}
+                rightIcon={<ChevronRightIcon />}
+                onClick={() => {
+                  window.open(
+                    "https://github.com/swh00tw/NMLAB-SecurityCam-Web",
+                    "_blank"
+                  );
+                }}
+              >
+                Go setup
+              </Button>
+            </Flex>
           </Flex>
           <Input
             placeholder="Insert your LineID here!"
@@ -66,11 +90,15 @@ function FirstTimeModal(props: ModalProps) {
           <Flex>
             <Button
               disabled={lineID.length === 0}
+              isLoading={loading}
               onClick={async () => {
                 if (auth0Id) {
+                  setLoading(true);
                   const data = await onSubmit(lineID, auth0Id);
+                  setLoading(false);
                   if (data.status === 200) {
                     onClose();
+                    router.reload();
                   } else {
                     toast({
                       title: "Error",
