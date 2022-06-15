@@ -107,8 +107,9 @@ function ImageCard(props: { image: Image }) {
       borderRadius={"2xl"}
       align="center"
       flexDirection={"column"}
+      overflow="hidden"
     >
-      <Flex justify={"center"} py={2}>
+      <Flex justify={"center"} pb={2} w="100%">
         <Image
           src={`${image.url}`}
           alt={`${image.url}`}
