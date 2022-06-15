@@ -22,6 +22,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 import useSWR from "swr";
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface ModalProps {
   isOpen: boolean;
@@ -111,6 +112,7 @@ export interface HomePageProps {
 
 // Landing page of the application
 function Home(props: HomePageProps): JSX.Element {
+  const router = useRouter();
   const { api_url } = props;
   const { isOpen, onClose } = useDisclosure();
   const { user, error, isLoading } = useUser();
@@ -293,7 +295,7 @@ function Home(props: HomePageProps): JSX.Element {
               >
                 {user.name} {data?.data.user ? "✅" : "⚠️"}
               </Text>
-              <Link href="/">
+              <Link href={`/dashboard?id=${data?.data.user._id}`}>
                 <Button
                   mt={6}
                   colorScheme="whatsapp"
