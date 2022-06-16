@@ -1,34 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Setup Guide
 
-## Getting Started
+1. Open your Line and add our Line BOT as your friend :)
+2. Type `!id: $YOUR_LINE_ID` to register our service.
+3. Login by any account in our web app (https://nmlab-securitycam-web.vercel.app/). When first time login, it will ask you to input your LINE_ID to link account to database. Please type EXACT the same LINE_ID as you type in the second step.
+4. Finish! Browse your historical snapshots or alert photo in dashboard page!
 
-First, run the development server:
+# Usage
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Here are all the commands you can type in chat room to our Line Bot.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| COMMAND                        | Description                                       | 
+| ------------------------------ | ------------------------------------------------- | 
+| `!id: $YOUR_LINE_ID`           | Initialize our service                            | 
+| `!snapshot`                    | Get a snapshot                                    | 
+| `!alert: 1/0`               | Type 1 to enable alert feature, 0 for disable        | 
+| `!whitelist: 1/0`           | Type 1 to enable whitelist feature, 0 for disable    | 
+| `!whitelist`+ Send image     | Add target (image) to whitelist                     | 
+| `!streaming_key: $YOUR_KEY` | Enable private youtube stream feature for you to watch                    |
+| `!stream: 1/0`      | Type 1 to start streaming, 0 for disable | 
