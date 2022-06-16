@@ -18,3 +18,4 @@ Here are all the commands you can type in chat room to our Line Bot.
 | `!whitelist`+ Send image     | Add target (image) to whitelist                     | 
 | `!streaming_key: $YOUR_KEY` | Enable private youtube stream feature for you to watch                    |
 | `!stream: 1/0`      | Type 1 to start streaming, 0 for disable | 
+| `!help`      | See usage of all commands | 
