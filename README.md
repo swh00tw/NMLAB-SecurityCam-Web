@@ -1,6 +1,6 @@
 # Setup Guide
 
-1. Open your Line and add our Line BOT as your friend :)
+1. Open your Line and add our Line BOT (line_id: `@723zglee`) as your friend :) 
 2. Type `!id: $YOUR_LINE_ID` to register our service.
 3. Login by any account in our web app (https://nmlab-securitycam-web.vercel.app/). When first time login, it will ask you to input your LINE_ID to link account to database. Please type EXACT the same LINE_ID as you type in the second step.
 4. Finish! Browse your historical snapshots or alert photo in dashboard page!
